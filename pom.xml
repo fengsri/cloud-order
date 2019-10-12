@@ -30,53 +30,74 @@
     </properties>
 
     <dependencies>
+        <!--用于json字符串的转换-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
 
+        <!--消息总线用于配置的自动刷新-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
             <version>2.1.1.RELEASE</version>
         </dependency>
 
+        <!--整合RabbitMQ-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
+        <!--整合Redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!--服务注册-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-rabbit -->
+        <!--使用Stream流-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
 
+        <!--用于从配置中心拉取配置-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
 
+        <!--用于查询数据库-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!--用于服务于服务之间的通信-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
             <version>${feign.version}</version>
+        </dependency>
+
+        <!--服务监控-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
+        <!--服务熔断-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <version>1.4.7.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -90,6 +111,8 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--简化get,set-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -97,6 +120,7 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--连接mysql-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -107,12 +131,7 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.feng</groupId>
-            <artifactId>product</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
+        <!--检验参数-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -137,11 +156,6 @@
             <dependency>
                 <groupId>com.feng</groupId>
                 <artifactId>dao</artifactId>
-                <version>${model.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.feng</groupId>
-                <artifactId>service</artifactId>
                 <version>${model.version}</version>
             </dependency>
         </dependencies>

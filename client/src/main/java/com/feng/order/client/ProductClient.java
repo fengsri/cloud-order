@@ -19,10 +19,18 @@ import java.util.List;
  */
 @FeignClient(name = "product")
 public interface ProductClient {
-
+    /**
+     * 通过商品的id集合去查询商品列表
+     * @param listId
+     * @return
+     */
     @GetMapping("/product/list")
     List<Product> getByIds(@RequestParam("ids")List<Integer> listId);
 
+    /**
+     * 通过购物列表，去调用商品服务的减库存的服务
+     * @param productInfoList
+     */
     @PostMapping("/product/reduce")
     void reduceProductCount(@RequestBody List<ProductInfo> productInfoList);
 

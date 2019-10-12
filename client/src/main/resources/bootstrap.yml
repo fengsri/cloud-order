@@ -13,21 +13,34 @@
 #  jpa:
 #    show-sql: true
 
+server:
+  port: 8086
 
 spring:
   application:
-    name: order
+    name: order   #当前应用的名称，也是用于拉取配置文件的前缀名称
   cloud:
     config:
       discovery:
         enabled: true
-        service-id: CONFIG
+        service-id: CONFIG   #从什么地方拉取配置
       profile: env
     stream:
       bindings:
         myMessage:
           group: order
           content-type: application/json
+  zipkin:
+    base-url: http://47.100.21.42:9411/
+  sleuth:
+    sampler:
+      probability: 1.0
+      rate: 1
 
-server:
-  port: 8082
+
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+
+
+
